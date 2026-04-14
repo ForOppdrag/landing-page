@@ -1,0 +1,99 @@
+/* style.css */
+.logo {
+  width: 65px;
+  height: auto;
+}
+
+/* Mobile First : styles de base pour mobiles */
+
+body {
+  font-size: 16px;
+  padding: 10px;
+}
+
+/* Tablette */
+
+@media (min-width: 768px){
+  body {
+    padding: 20px;
+  }
+}
+
+
+/* Desktop */
+@media (min-width: 1024px){
+
+  body {
+    padding: 40px;
+  }
+}
+
+<style>
+    .swiper-slide:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+    }
+</style>
+
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  background: linear-gradient(to bottom, #3B82F6, #9333EA);
+  height: 0;
+  transition: height 1s ease-out;
+}
+.timeline-active {
+  height: 100%;
+}
+
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #ffffff 30%, #3B82F6 70%); /* Blanc au centre, bleu autour */
+  border: 2px solid #3B82F6;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(59,130,246,0.6);
+  z-index: 10;
+}
+#tech-logo {
+  filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.5)); /* Glow vert émeraude */
+}
+body.loading {
+  overflow: hidden;
+}
+#preloader {
+  transition: opacity 3s ease;
+}
+#preloader.opacity-0 {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fade-in 2s ease forwards;
+}
+.delay-0     { animation-delay: 0s; }
+.delay-500   { animation-delay: 0.5s; }
+.delay-1000  { animation-delay: 1s; }
+.delay-1500  { animation-delay: 1.5s; }
