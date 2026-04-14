@@ -334,8 +334,8 @@
                         </p>
 
                         <h1 id="hero-title" class="mt-8 max-w-5xl text-balance text-4xl font-black leading-[0.95] tracking-tight text-white md:text-6xl xl:text-7xl" data-reveal style="--reveal-delay: 60ms;">
-                            Structurer, sécuriser et lancer
-                            <span class="bg-gradient-to-r from-cyan-100 via-white to-teal-100 bg-clip-text text-transparent">vos missions IA, data et cybersécurité avec le niveau d’exigence qu’elles imposent.</span>
+                            Structurer, sécuriser et déployer
+                            <span class="bg-gradient-to-r from-cyan-100 via-white to-teal-100 bg-clip-text text-transparent">vos missions IA, data et cybersécurité avec le niveau d’exigence qu’ils requièrent.</span>
                         </h1>
 
                         <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-300" data-reveal style="--reveal-delay: 120ms;">
@@ -390,7 +390,7 @@
                             <article class="interaction-card rounded-[1.9rem] p-5 md:col-span-2 xl:col-span-2" data-reveal style="--reveal-delay: 260ms;">
                                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">Responsabilité</p>
                                 <h3 class="mt-3 text-lg font-semibold text-white">Démarche RSE</h3>
-                                <p class="mt-3 text-sm leading-7 text-slate-300">Oppdrag.tech reverse 3 % de ses bénéfices à l’ONaCVG et porte une approche d’exécution plus exigeante et plus utile.</p>
+                                <p class="mt-3 text-sm leading-7 text-slate-300">Oppdrag.tech reverse 3 % de ses bénéfices à l’ONaCVG et défend une approche de l’exécution à la fois exigeante, utile et responsable, en favorisant également l’insertion de profils issus de minorités ou de parcours atypiques.</p>
                             </article>
                         </div>
                     </aside>
