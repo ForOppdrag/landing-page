@@ -431,7 +431,7 @@
         <div class="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div data-reveal>
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Ressources Humaines</p>
-                <h2 id="profiles-title" class="mt-4 text-3xl font-bold text-white md:text-5xl">Un vivier pluridisciplaines d'experts qualifiés.</h2>
+                <h2 id="profiles-title" class="mt-4 text-3xl font-bold text-white md:text-5xl">Un vivier pluridisciplinaire d'experts qualifiés.</h2>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                    Nous ne présentons pas des centaines de candidatures. Nous mettons en avant le type d’experts que nous savons réellement mobilisable sur des missions définies(visuels volontairement floutés pour préserver la confidentialité).
                 </p>
