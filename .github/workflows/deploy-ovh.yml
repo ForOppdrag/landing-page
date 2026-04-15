@@ -15,6 +15,8 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      REMOTE_PATH: /landing-page
 
     steps:
       - name: Checkout repository
@@ -45,22 +47,51 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Deploy to OVH via lftp
+      - name: Sync application files to OVH
         run: |
           lftp -e "
             set ssl:verify-certificate no;
             open -u ${{ secrets.OVH_FTP_USERNAME }},${{ secrets.OVH_FTP_PASSWORD }} ${{ secrets.OVH_FTP_SERVER }};
             mirror -R \
               --verbose \
-              --exclude-glob .git* \
-              --exclude-glob node_modules \
+              --exclude-glob .git \
               --exclude-glob .github \
+              --exclude-glob node_modules \
+              --exclude-glob vendor \
               --exclude-glob tests \
               --exclude-glob .env \
               --exclude-glob storage/logs \
               --exclude-glob storage/framework/cache \
               --exclude-glob storage/framework/sessions \
               --exclude-glob storage/framework/views \
-              ./ /landing-page/;
+              ./ ${REMOTE_PATH}/;
             bye
           "
+
+      - name: Run Laravel post-deploy commands on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.OVH_FTP_SERVER }}
+          username: ${{ secrets.OVH_SSH_USERNAME }}
+          key: ${{ secrets.OVH_SSH_PRIVATE_KEY }}
+          password: ${{ secrets.OVH_SSH_PASSWORD }}
+          script_stop: true
+          script: |
+            set -e
+
+            cd "${{ env.REMOTE_PATH }}"
+
+            # Rebuild PHP dependencies on the server instead of deploying vendor/.
+            composer install --no-dev --optimize-autoloader
+
+            # Ensure Laravel writable directories remain writable after deploy.
+            mkdir -p storage bootstrap/cache
+            chmod -R ug+rwX storage bootstrap/cache
+            find storage bootstrap/cache -type d -exec chmod 775 {} \;
+            find storage bootstrap/cache -type f -exec chmod 664 {} \;
+
+            # Refresh Laravel caches from the server environment.
+            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
