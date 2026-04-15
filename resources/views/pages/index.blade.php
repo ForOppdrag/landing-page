@@ -168,7 +168,7 @@
         $coverageGroups = [
             [
                 'title' => 'Expertises couvertes',
-                'items' => ['IA générative', 'Python', 'Industrialisation IA', 'Ingénierie des données', 'Sécurité cloud', 'IAM / sécurité applicative'],
+                'items' => ['IA générative', 'Data science', 'Industrialisation IA', 'Ingénierie des données', 'Sécurité cloud', 'IAM / sécurité applicative'],
             ],
             [
                 'title' => 'Types de mission',
@@ -279,18 +279,15 @@
         $outcomes = [
             [
                 'quote' => 'Le sujet n’était pas seulement de trouver un profil. Oppdrag.tech a verrouillé le cadre, réduit le risque d’écart et permis un démarrage propre sur un sujet IA très exposé.',
-                'author' => 'DSI, groupe mutualiste',
-                'result' => 'Mission cadrée et lancée en moins d’une semaine',
+                'author' => 'Responsable pôle Recherche & Développement, MedTech',
             ],
             [
                 'quote' => 'Nous avions besoin d’un niveau senior immédiatement crédible en cybersécurité. La sélection était courte, défendable, et le suivi a évité les frictions classiques des renforts externes.',
-                'author' => 'Responsable cybersécurité, ETI industrielle',
-                'result' => 'Renfort sécurité opérationnel sans dette administrative',
+                'author' => 'Responsable Gestion des Incidents & Réponse, Secteur bancaire',
             ],
             [
                 'quote' => 'Le vrai différenciateur a été la discipline de qualification. Avant de parler de profils, nous avions déjà une hypothèse d’exécution et un cadre de gouvernance clair.',
-                'author' => 'Directeur data, entreprise en croissance',
-                'result' => 'Preuve de concept data lancée avec livrable décisionnel en 4 semaines',
+                'author' => 'Lead Data Scientist, Secteur public',
             ],
         ];
 
@@ -339,7 +336,7 @@
                         </h1>
 
                         <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-300" data-reveal style="--reveal-delay: 120ms;">
-                            Oppdrag.tech s'intercale entre l'urgence opérationnelle et l'exigence de gouvernance — pour que vitesse et conformité ne soient plus un arbitrage.
+                            Oppdrag.tech s'intercale entre l'urgence opérationnelle et l'exigence de gouvernance dans le but de concilier vitesse et conformité.
                         </p>
 
                         <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-reveal style="--reveal-delay: 180ms;">
@@ -636,6 +633,260 @@
     </section>
 
     <section class="section-fade mx-auto max-w-7xl px-6 py-20 lg:px-8" aria-labelledby="console-title">
+        @php
+            $consoleMeta = [
+                'brief' => [
+                    'status' => 'Cadrage en cours',
+                    'signal' => 'Signal validé',
+                    'clarity' => 'Élevée',
+                    'risk' => 'Faible',
+                    'compliance' => 'Confidentialité cadrée',
+                ],
+                'matching' => [
+                    'status' => 'Sélection active',
+                    'signal' => 'Périmètre clarifié',
+                    'clarity' => 'Défendable',
+                    'risk' => 'Sous contrôle',
+                    'compliance' => 'Exposition minimale',
+                ],
+                'launch' => [
+                    'status' => 'Lancement prêt',
+                    'signal' => 'Entrée exploitable',
+                    'clarity' => 'Opérationnelle',
+                    'risk' => 'Encadré',
+                    'compliance' => 'Cadre validé',
+                ],
+            ];
+        @endphp
+
+        <style>
+            .mission-console-premium {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+            }
+
+            .mission-console-premium::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                pointer-events: none;
+                background:
+                    radial-gradient(circle at 15% 18%, rgba(94, 234, 212, 0.12), transparent 22%),
+                    radial-gradient(circle at 84% 14%, rgba(56, 189, 248, 0.12), transparent 26%),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 30%);
+                opacity: 0.9;
+            }
+
+            .mission-console-premium::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                pointer-events: none;
+                background-image:
+                    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+                background-size: 34px 34px;
+                mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 88%);
+                opacity: 0.45;
+            }
+
+            .console-tabs-shell {
+                position: relative;
+                z-index: 1;
+            }
+
+            .console-chip-premium {
+                position: relative;
+                z-index: 1;
+                transition:
+                    transform 220ms ease,
+                    border-color 220ms ease,
+                    background-color 220ms ease,
+                    box-shadow 220ms ease,
+                    color 220ms ease;
+            }
+
+            .console-chip-premium:hover,
+            .console-chip-premium:focus-visible {
+                transform: translateY(-2px);
+            }
+
+            .console-chip-premium[aria-pressed='true'] {
+                box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.08), 0 10px 30px rgba(45, 212, 191, 0.12);
+            }
+
+            .console-progress {
+                position: relative;
+                margin-top: 1rem;
+                height: 0.4rem;
+                overflow: hidden;
+                border-radius: 9999px;
+                background: rgba(148, 163, 184, 0.12);
+            }
+
+            .console-progress::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, rgba(94, 234, 212, 0.08), rgba(56, 189, 248, 0.06));
+            }
+
+            .console-progress-indicator {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: calc((100% - 0.5rem) / 3);
+                border-radius: inherit;
+                background: linear-gradient(90deg, rgba(94, 234, 212, 0.95), rgba(56, 189, 248, 0.72));
+                box-shadow: 0 0 20px rgba(45, 212, 191, 0.28);
+                transform: translateX(0);
+                transition: transform 320ms ease, opacity 220ms ease;
+            }
+
+            .mission-console-premium[data-console-stage='matching'] .console-progress-indicator {
+                transform: translateX(calc(100% + 0.25rem));
+            }
+
+            .mission-console-premium[data-console-stage='launch'] .console-progress-indicator {
+                transform: translateX(calc((100% + 0.25rem) * 2));
+            }
+
+            .console-topline {
+                position: relative;
+                z-index: 1;
+            }
+
+            .console-status-pill {
+                border: 1px solid rgba(94, 234, 212, 0.18);
+                background: rgba(94, 234, 212, 0.08);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            }
+
+            .console-stage-premium {
+                position: relative;
+                overflow: hidden;
+                transform-origin: top center;
+                transition: transform 280ms ease, opacity 220ms ease;
+            }
+
+            .console-stage-premium.is-active {
+                animation: console-panel-enter 320ms ease;
+            }
+
+            .console-stage-premium::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                pointer-events: none;
+                background:
+                    radial-gradient(circle at top right, rgba(94, 234, 212, 0.1), transparent 24%),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 26%);
+                opacity: 0.85;
+            }
+
+            .console-stage-premium::after {
+                content: "";
+                position: absolute;
+                inset: 1px;
+                border-radius: inherit;
+                pointer-events: none;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+            }
+
+            .console-signal-card {
+                border: 1px solid rgba(148, 163, 184, 0.1);
+                background: linear-gradient(180deg, rgba(2, 6, 23, 0.46), rgba(15, 23, 42, 0.28));
+            }
+
+            .console-meta-grid {
+                display: grid;
+                gap: 0.75rem;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .console-meta-item {
+                border: 1px solid rgba(148, 163, 184, 0.1);
+                background: rgba(255, 255, 255, 0.03);
+                transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
+            }
+
+            .console-stage-premium.is-active .console-meta-item {
+                border-color: rgba(94, 234, 212, 0.14);
+            }
+
+            .console-output-card {
+                position: relative;
+                overflow: hidden;
+                border: 1px solid rgba(125, 211, 252, 0.14);
+                background:
+                    linear-gradient(180deg, rgba(8, 17, 31, 0.8), rgba(15, 23, 42, 0.72)),
+                    radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 28%);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            }
+
+            .console-output-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background: linear-gradient(180deg, rgba(125, 211, 252, 0.06), transparent 36%);
+            }
+
+            .console-output-item {
+                opacity: 0.72;
+                transform: translateY(6px);
+                transition: opacity 260ms ease, transform 260ms ease;
+            }
+
+            .console-stage-premium.is-active .console-output-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .console-stage-premium.is-active .console-output-item:nth-child(1) {
+                transition-delay: 40ms;
+            }
+
+            .console-stage-premium.is-active .console-output-item:nth-child(2) {
+                transition-delay: 90ms;
+            }
+
+            .console-stage-premium.is-active .console-output-item:nth-child(3) {
+                transition-delay: 140ms;
+            }
+
+            @keyframes console-panel-enter {
+                0% {
+                    opacity: 0;
+                    transform: translateY(10px) scale(0.992);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .console-chip-premium,
+                .console-progress-indicator,
+                .console-stage-premium,
+                .console-output-item,
+                .console-meta-item {
+                    transition: none;
+                    animation: none;
+                }
+
+                .console-chip-premium:hover,
+                .console-chip-premium:focus-visible {
+                    transform: none;
+                }
+            }
+        </style>
+
         <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div data-reveal>
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Pilotage de mission</p>
@@ -645,34 +896,97 @@
                 </p>
             </div>
 
-            <section class="mission-console rounded-[2rem] p-6 md:p-8" data-console data-reveal style="--reveal-delay: 80ms;">
-                <div class="flex flex-wrap gap-3">
+            <section class="mission-console mission-console-premium rounded-[2rem] p-6 md:p-8" data-console data-console-stage="brief" data-reveal style="--reveal-delay: 80ms;">
+                <div class="console-topline mb-5 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex h-2.5 w-2.5 rounded-full bg-teal-300 shadow-[0_0_0_6px_rgba(94,234,212,0.12)]" aria-hidden="true"></span>
+                        <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-300">Cockpit d’exécution</p>
+                    </div>
+                    <div class="console-status-pill inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-100">
+                        <span class="h-2 w-2 rounded-full bg-teal-300" aria-hidden="true"></span>
+                        Progression pilotée
+                    </div>
+                </div>
+
+                <div class="console-tabs-shell">
+                    <div class="flex flex-wrap gap-3">
                     @foreach ($consoleStages as $stage)
                         <button
                             type="button"
-                            class="console-chip rounded-full px-4 py-2 text-sm font-semibold"
+                            class="console-chip console-chip-premium rounded-full px-4 py-2 text-sm font-semibold"
                             data-console-trigger="{{ $stage['key'] }}"
                             aria-pressed="{{ $loop->first ? 'true' : 'false' }}"
                         >
                             {{ $stage['label'] }}
                         </button>
                     @endforeach
+                    </div>
+                    <div class="console-progress" aria-hidden="true">
+                        <span class="console-progress-indicator"></span>
+                    </div>
                 </div>
 
                 <div class="mt-6 grid gap-4 lg:grid-cols-[1.05fr_.95fr]">
                     @foreach ($consoleStages as $stage)
-                        <article class="console-stage {{ $loop->first ? 'is-active' : '' }} rounded-[1.6rem] p-6 lg:col-span-2" data-console-panel="{{ $stage['key'] }}">
+                        @php
+                            $meta = $consoleMeta[$stage['key']] ?? [
+                                'status' => 'Étape active',
+                                'signal' => 'Signal utile',
+                                'clarity' => 'Lisible',
+                                'risk' => 'Sous contrôle',
+                                'compliance' => 'Cadre tenu',
+                            ];
+                        @endphp
+                        <article class="console-stage console-stage-premium {{ $loop->first ? 'is-active' : '' }} rounded-[1.6rem] p-6 lg:col-span-2" data-console-panel="{{ $stage['key'] }}">
                             <div class="grid gap-5 md:grid-cols-[1.15fr_.85fr] md:items-start">
                                 <div>
-                                    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">{{ $stage['metric'] }}</p>
-                                    <h3 class="mt-3 text-2xl font-bold text-white">{{ $stage['title'] }}</h3>
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">{{ $stage['metric'] }}</p>
+                                        <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-200">
+                                            <span class="h-2 w-2 rounded-full bg-cyan-200" aria-hidden="true"></span>
+                                            {{ $meta['status'] }}
+                                        </span>
+                                    </div>
+                                    <h3 class="mt-4 text-2xl font-bold text-white">{{ $stage['title'] }}</h3>
                                     <p class="mt-4 text-sm leading-7 text-slate-300">{{ $stage['text'] }}</p>
+
+                                    <div class="console-signal-card mt-6 rounded-[1.25rem] px-4 py-4">
+                                        <div class="flex items-center justify-between gap-3">
+                                            <div>
+                                                <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">Signal opérationnel</p>
+                                                <p class="mt-2 text-sm font-medium text-slate-100">{{ $meta['signal'] }}</p>
+                                            </div>
+                                            <div class="hidden h-10 w-10 rounded-full border border-cyan-200/12 bg-cyan-200/6 md:flex md:items-center md:justify-center">
+                                                <span class="h-2.5 w-2.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(125,211,252,0.45)]" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="console-meta-grid mt-4">
+                                        <div class="console-meta-item rounded-[1rem] px-4 py-3">
+                                            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Clarté</p>
+                                            <p class="mt-2 text-sm font-medium text-slate-100">{{ $meta['clarity'] }}</p>
+                                        </div>
+                                        <div class="console-meta-item rounded-[1rem] px-4 py-3">
+                                            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Risque</p>
+                                            <p class="mt-2 text-sm font-medium text-slate-100">{{ $meta['risk'] }}</p>
+                                        </div>
+                                        <div class="console-meta-item rounded-[1rem] px-4 py-3 md:col-span-2">
+                                            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Confidentialité / cadre</p>
+                                            <p class="mt-2 text-sm font-medium text-slate-100">{{ $meta['compliance'] }}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="hero-kpi-card rounded-[1.4rem] p-5">
-                                    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">Sortie attendue</p>
+                                <div class="console-output-card rounded-[1.4rem] p-5">
+                                    <div>
+                                        <div>
+                                            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">Livrables</p>
+                                            <p class="mt-2 text-sm leading-6 text-slate-400">Une matière exploitable pour décider, arbitrer et lancer sans angle mort résiduel.</p>
+                                        </div>
+                                    </div>
                                     <ul class="mt-4 space-y-3 text-sm text-slate-200">
                                         @foreach ($stage['points'] as $point)
-                                            <li class="flex items-start gap-3">
+                                            <li class="console-output-item flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3">
                                                 <span class="mt-1 h-2.5 w-2.5 rounded-full bg-teal-300" aria-hidden="true"></span>
                                                 <span>{{ $point }}</span>
                                             </li>
@@ -687,7 +1001,138 @@
         </div>
     </section>
 
+    <script>
+        (() => {
+            const consoleRoot = document.querySelector('[data-console]');
+            if (! consoleRoot) {
+                return;
+            }
+
+            const syncConsoleStage = () => {
+                const active = consoleRoot.querySelector('[data-console-trigger][aria-pressed="true"]');
+                if (active?.dataset.consoleTrigger) {
+                    consoleRoot.dataset.consoleStage = active.dataset.consoleTrigger;
+                }
+            };
+
+            syncConsoleStage();
+
+            consoleRoot.querySelectorAll('[data-console-trigger]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    window.requestAnimationFrame(syncConsoleStage);
+                });
+            });
+        })();
+    </script>
+
     <section class="section-fade mx-auto max-w-7xl px-6 py-24 lg:px-8" aria-labelledby="use-cases-title">
+        @php
+            $useCaseMeta = [
+                'Développeur IA' => [
+                    'variant' => 'ai',
+                    'tags' => [],
+                ],
+                'Data Engineer' => [
+                    'variant' => 'data',
+                    'tags' => [],
+                ],
+                'Pentester' => [
+                    'variant' => 'security',
+                    'tags' => [],
+                ],
+            ];
+        @endphp
+
+        <style>
+            .use-case-card {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.9));
+                box-shadow: 0 24px 70px rgba(2, 6, 23, 0.28);
+                transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+            }
+
+            .use-case-card:hover,
+            .use-case-card:focus-within {
+                transform: translateY(-4px);
+                box-shadow: 0 30px 80px rgba(2, 6, 23, 0.36);
+            }
+
+            .use-case-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 32%);
+                opacity: 0.8;
+            }
+
+            .use-case-card::after {
+                content: "";
+                position: absolute;
+                left: 1.5rem;
+                right: 1.5rem;
+                top: 0;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+                opacity: 0.9;
+            }
+
+            .use-case-card--ai {
+                border-color: rgba(125, 211, 252, 0.14);
+                background-image:
+                    radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.12), transparent 26%),
+                    linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.9));
+            }
+
+            .use-case-card--data {
+                border-color: rgba(45, 212, 191, 0.14);
+                background-image:
+                    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+                    radial-gradient(circle at 18% 82%, rgba(45, 212, 191, 0.1), transparent 30%),
+                    linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.9));
+                background-size: 24px 24px, auto, auto;
+            }
+
+            .use-case-card--security {
+                border-color: rgba(52, 211, 153, 0.14);
+                background-image:
+                    repeating-linear-gradient(180deg, rgba(148, 163, 184, 0.05) 0 1px, transparent 1px 12px),
+                    radial-gradient(circle at 84% 16%, rgba(52, 211, 153, 0.08), transparent 24%),
+                    linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.94));
+                background-size: 100% 12px, auto, auto;
+            }
+
+            .use-case-tags {
+                transition: opacity 220ms ease, transform 220ms ease;
+            }
+
+            .use-case-card:hover .use-case-tags,
+            .use-case-card:focus-within .use-case-tags {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .use-case-tag {
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                background: rgba(15, 23, 42, 0.58);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .use-case-card,
+                .use-case-tags {
+                    transition: none;
+                }
+
+                .use-case-card:hover,
+                .use-case-card:focus-within {
+                    transform: none;
+                }
+            }
+        </style>
+
         <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div data-reveal>
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Cas d’usage</p>
@@ -731,13 +1176,23 @@
 
                 <div class="grid gap-5 md:grid-cols-3">
                     @foreach ($useCases as $case)
-                        <article class="bento-card rounded-[2rem] p-6" data-reveal style="--reveal-delay: {{ $loop->index * 70 }}ms;">
-                            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">{{ $case['label'] }}</p>
-                            <h3 class="mt-4 text-2xl font-bold text-white">{{ $case['title'] }}</h3>
-                            <p class="mt-4 text-sm leading-7 text-slate-300">{{ $case['text'] }}</p>
-                            <div class="mt-8 rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-4">
-                                <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Ce que cela permet</p>
-                                <p class="mt-2 text-sm text-slate-100">{{ $case['outcome'] }}</p>
+                        @php
+                            $meta = $useCaseMeta[$case['title']] ?? [
+                                'variant' => 'ai',
+                                'tags' => ['Expertise', 'Cadrage', 'Exécution'],
+                            ];
+                        @endphp
+                        <article class="use-case-card use-case-card--{{ $meta['variant'] }} group rounded-[2rem] p-6 md:p-7" data-reveal style="--reveal-delay: {{ $loop->index * 70 }}ms;">
+                            <div class="relative z-10 flex h-full flex-col">
+                                <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-teal-100/90">{{ $case['label'] }}</p>
+                                <h3 class="mt-5 text-2xl font-bold leading-tight text-white">{{ $case['title'] }}</h3>
+                                <p class="mt-5 text-sm leading-7 text-slate-300">{{ $case['text'] }}</p>
+
+                                <div class="use-case-tags mt-6 flex flex-wrap gap-2 opacity-90">
+                                    @foreach ($meta['tags'] as $tag)
+                                        <span class="use-case-tag rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-200">{{ $tag }}</span>
+                                    @endforeach
+                                </div>
                             </div>
                         </article>
                     @endforeach
@@ -752,7 +1207,7 @@
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Expertises</p>
                 <h2 id="expertises-title" class="mt-4 text-3xl font-bold text-white md:text-5xl">Des compétences métiers adaptées à vos bésoins </h2>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                    Oppdrag.tech intervient quand le besoin est sensible, qu’il y a peu de marge d’erreur et qu’une simple mise en relation ne suffit pas.
+                    Oppdrag.tech est mobilisé lorsque les enjeux sont sensibles, que l’erreur n’est pas permise et qu’un simple matching ne suffit pas à garantir la bonne exécution.
                 </p>
             </div>
 
@@ -833,7 +1288,7 @@
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Preuves d’issue</p>
                 <h2 id="outcomes-title" class="mt-4 text-3xl font-bold text-white md:text-5xl">Des retours orientés résultat, pas des compliments vagues.</h2>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                    Les équipes nous sollicitent quand la mission est sensible, que le temps est compté et que l’erreur de casting coûte trop cher. Les preuves doivent donc parler de délai, de cadrage et de stabilité d’exécution.
+                    Les équipes nous sollicitent sur des missions sensibles, dans des contextes contraints par le temps, où le coût d’une erreur de casting est trop important. Les preuves attendues portent donc sur notre capacité à intervenir rapidement, cadrer clairement et sécuriser l’exécution.
                 </p>
             </div>
 
@@ -841,9 +1296,8 @@
                 @foreach ($outcomes as $outcome)
                     <article class="bento-card rounded-[1.9rem] p-6" data-reveal style="--reveal-delay: {{ $loop->index * 70 }}ms;">
                         <p class="text-lg leading-8 text-slate-100">“{{ $outcome['quote'] }}”</p>
-                        <div class="mt-6 flex flex-col gap-2 border-t border-white/10 pt-4 md:flex-row md:items-center md:justify-between">
+                        <div class="mt-6 border-t border-white/10 pt-4">
                             <p class="text-sm font-semibold text-white">{{ $outcome['author'] }}</p>
-                            <p class="text-sm text-teal-100">{{ $outcome['result'] }}</p>
                         </div>
                     </article>
                 @endforeach
@@ -968,7 +1422,7 @@
 
                     <div>
                         <label for="message" class="mb-2 block text-sm font-medium text-slate-200">Décrivez votre contexte</label>
-                        <textarea id="message" name="message" rows="6" required autocomplete="on" class="field-input" placeholder="Décrivez le contexte, les expertises recherchées, les contraintes et l’horizon de démarrage.">{{ old('message') }}</textarea>
+                        <textarea id="message" name="message" rows="6" required autocomplete="on" class="field-input" placeholder="Décrivez le contexte, les expertises recherchées, les contraintes et le cadre de démarrage.">{{ old('message') }}</textarea>
                     </div>
 
                     <button type="submit" class="btn-primary w-full sm:w-auto">
