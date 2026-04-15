@@ -1,7 +1,7 @@
 @extends('layouts.marketing')
 
-@section('title', 'oppdrag.tech | Déploiement d’experts IA, data et cybersécurité')
-@section('meta_description', 'Oppdrag.tech aide les entreprises à cadrer et déployer des experts IA, data et cybersécurité sous 5 jours, avec une sélection exigeante et un cadre fiable conforme au RGPD.')
+@section('title', 'La référence technique de l’ingénierie des données | oppdrag.tech')
+@section('meta_description', 'Déploiement rapide. Sélection exigeante. Suivi rigoureux.')
 @section('canonical', route('home'))
 
 @section('structured_data')

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>@yield('title', 'Oppdrag.tech | Déploiement')</title>
-    <meta name="description" content="@yield('meta_description', 'Oppdrag.tech aide les entreprises à cadrer et déployer des experts IA, data et cybersécurité dans un cadre fiable, rapide et conforme.')">
+    <title>@yield('title', 'La référence technique de l’ingénierie des données | oppdrag.tech')</title>
+    <meta name="description" content="@yield('meta_description', 'Déploiement rapide. Sélection exigeante. Suivi rigoureux.')">
     <meta name="robots" content="@yield('meta_robots', 'index,follow')">
     <link rel="canonical" href="@yield('canonical', route('home'))">
 
@@ -14,14 +14,14 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:site_name" content="oppdrag.tech">
-    <meta property="og:title" content="@yield('og_title', trim($__env->yieldContent('title', 'Oppdrag.tech | Déploiement')))">
-    <meta property="og:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Oppdrag.tech aide les entreprises à cadrer et déployer des experts IA, data et cybersécurité dans un cadre fiable, rapide et conforme.')))">
+    <meta property="og:title" content="@yield('og_title', trim($__env->yieldContent('title', 'La référence technique de l’ingénierie des données | oppdrag.tech')))">
+    <meta property="og:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Déploiement rapide. Sélection exigeante. Suivi rigoureux.')))">
     <meta property="og:url" content="@yield('canonical', route('home'))">
     <meta property="og:image" content="@yield('og_image', asset('Images/logo-opg2.png'))">
     <meta property="og:image:alt" content="@yield('og_image_alt', 'Logo oppdrag.tech')">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('og_title', trim($__env->yieldContent('title', 'Oppdrag.tech | Déploiement')))">
-    <meta name="twitter:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Oppdrag.tech aide les entreprises à cadrer et déployer des experts IA, data et cybersécurité dans un cadre fiable, rapide et conforme.')))">
+    <meta name="twitter:title" content="@yield('og_title', trim($__env->yieldContent('title', 'La référence technique de l’ingénierie des données | oppdrag.tech')))">
+    <meta name="twitter:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Déploiement rapide. Sélection exigeante. Suivi rigoureux.')))">
     <meta name="twitter:image" content="@yield('og_image', asset('Images/logo-opg2.png'))">
     <meta name="twitter:image:alt" content="@yield('og_image_alt', 'Logo oppdrag.tech')">
 
