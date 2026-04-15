@@ -204,20 +204,20 @@
         $useCases = [
             [
                 'label' => 'IA générative',
-                'title' => 'Assistant métier sur données sensibles',
-                'text' => 'Cadrer un cas d’usage d’IA générative, choisir le bon niveau d’industrialisation et sécuriser l’exposition des données avant mise en production.',
+                'title' => 'Développeur IA',
+                'text' => 'Concevoir et industrialiser des solutions IA end-to-end, du pipeline de données à la mise en production en posant les standards MLOps, LLMOps et d'ingénierie logicielle qui garantissent fiabilité, scalabilité et conformité RGPD.',
                 'outcome' => 'Décision plus rapide, dette d’architecture évitée',
             ],
             [
-                'label' => 'Data architecture',
-                'title' => 'Refonte d’une chaîne de donnée critique',
-                'text' => 'Renforcer une équipe data avec le bon niveau de seniorité pour fiabiliser les pipelines, améliorer la gouvernance et accélérer la lecture métier.',
+                'label' => 'Data science',
+                'title' => 'Data Engineer',
+                'text' => 'Explorer et analyser des signaux data pour qualifier la faisabilité de nouveaux concepts IA, prototyper les cas d'usage les plus prometteurs, et garantir la transmissibilité des livrables vers les équipes d'industrialisation.',
                 'outcome' => 'Capacité d’exécution renforcée sans ralentir les équipes',
             ],
             [
                 'label' => 'Cybersécurité',
-                'title' => 'Programme IAM ou sécurité applicative sous contrainte',
-                'text' => 'Déployer rapidement un expert senior ou une équipe resserrée pour absorber une exigence sécurité qui ne peut pas attendre un cycle de recrutement classique.',
+                'title' => 'Pentester',
+                'text' => 'Piloter la posture de sécurité opérationnelle via l'analyse de risque, IAM/PAM, tests d'intrusion et sécurisation des migrations cloud AWS/OVH dans un cadre réglementaire exigeant (LPM, DORA et NIST).',
                 'outcome' => 'Risque réduit, pilotage plus net, mise en mouvement plus rapide',
             ],
         ];
@@ -339,7 +339,7 @@
                         </h1>
 
                         <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-300" data-reveal style="--reveal-delay: 120ms;">
-                            Oppdrag.tech agit comme une couche d’exécution premium pour les entreprises qui doivent avancer vite sur un sujet critique, tout en gardant un cadre lisible, gouverné et conforme.
+                            Oppdrag.tech s'intercale entre l'urgence opérationnelle et l'exigence de gouvernance — pour que vitesse et conformité ne soient plus un arbitrage.
                         </p>
 
                         <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-reveal style="--reveal-delay: 180ms;">
@@ -368,7 +368,7 @@
                                 <div class="flex flex-wrap items-center justify-between gap-4">
                                     <div>
                                         <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">Leitmotiv</p>
-                                        <h2 class="mt-3 text-2xl font-bold text-white">Un accompagnement de bout en bout, avant pendant et après la sélection.</h2>
+                                        <h2 class="mt-3 text-2xl font-bold text-white">Un accompagnement de bout en bout, avant, pendant et après la sélection.</h2>
                                     </div>
                                     <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-100">
                                         <span class="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true"></span>
@@ -390,7 +390,7 @@
                             <article class="interaction-card rounded-[1.9rem] p-5 md:col-span-2 xl:col-span-2" data-reveal style="--reveal-delay: 260ms;">
                                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">Responsabilité</p>
                                 <h3 class="mt-3 text-lg font-semibold text-white">Démarche RSE</h3>
-                                <p class="mt-3 text-sm leading-7 text-slate-300">Oppdrag.tech reverse 3 % de ses bénéfices à l’ONaCVG et défend une approche de l’exécution à la fois exigeante, utile et responsable, en favorisant également l’insertion de profils issus de minorités ou de parcours atypiques.</p>
+                                <p class="mt-3 text-sm leading-7 text-slate-300">Oppdrag.tech reverse 3 % de ses bénéfices à l’ONaCVG et défend une approche liant rigueur d'éxecution et responsabilité sociétale en favorisant également l’insertion de profils issus de minorités ou de parcours atypiques.</p>
                             </article>
                         </div>
                     </aside>
