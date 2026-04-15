@@ -263,7 +263,7 @@
               </span>
               <span class="pill border-amber-400/20 bg-amber-400/10">
                 <i class="fas fa-shield-heart text-amber-300"></i>
-                <span><span class="font-bold text-amber-300">3% des bénéfices</span> reversés à l’ONaCVG</span>
+                <span><span class="font-bold text-amber-300">3 % des bénéfices</span> reversés à l’ONaCVG</span>
               </span>
             </div>
           </div>
@@ -407,7 +407,7 @@
           <article class="reveal rounded-[1.5rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-xl">
             <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-400/10 text-2xl text-amber-300"><i class="fas fa-hand-holding-heart"></i></div>
             <h3 class="mt-5 text-lg font-bold">Impact</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-300">3% des bénéfices reversés aux anciens combattants via l’ONaCVG.</p>
+            <p class="mt-3 text-sm leading-7 text-slate-300">3 % des bénéfices reversés aux anciens combattants via l’ONaCVG.</p>
           </article>
           <article class="reveal rounded-[1.5rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-xl">
             <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-400/10 text-2xl text-teal-300"><i class="fas fa-graduation-cap"></i></div>
@@ -473,7 +473,7 @@
                 <div class="flex items-start gap-3">
                   <i class="fas fa-shield-heart mt-1 text-amber-300"></i>
                   <div>
-                    <p class="font-medium"><span class="text-lg font-bold text-amber-300">3%</span> de nos bénéfices sont reversés à l’ONaCVG.</p>
+                    <p class="font-medium"><span class="text-lg font-bold text-amber-300">3 %</span> de nos bénéfices sont reversés à l’ONaCVG.</p>
                     <p class="mt-1 text-xs text-slate-300">Office national des combattants et victimes de guerre</p>
                   </div>
                 </div>
@@ -573,7 +573,7 @@
           <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white">Ressources</h3>
           <ul class="mt-5 space-y-3 text-sm text-slate-300">
             <li><a href="#offres" class="transition hover:text-white">Nos offres</a></li>
-            <li><a href="{{ url('faq') }}" class="transition hover:text-white">F.A.Q</a></li>
+            <li><a href="{{ url('faq') }}" class="transition hover:text-white">FAQ</a></li>
             <li><a href="{{ url('blog') }}" class="transition hover:text-white">Blog</a></li>
             <li><a href="{{ url('a-propos') }}" class="transition hover:text-white">À propos</a></li>
           </ul>

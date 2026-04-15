@@ -9,7 +9,7 @@
         $stats = [
             ['value' => '5 jours', 'label' => 'pour lancer une mission'],
             ['value' => 'B2B', 'label' => 'approche pensée pour les entreprises'],
-            ['value' => '3%', 'label' => 'des bénéfices reversés à l’ONaCVG'],
+            ['value' => '3 %', 'label' => 'des bénéfices reversés à l’ONaCVG'],
         ];
 
         $values = [
@@ -111,7 +111,7 @@
     <section class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div class="glass-panel rounded-[2rem] p-8" id="contact">
             <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">Contact</p>
-            <h2 class="mt-3 text-3xl font-bold text-white">Un besoin à cadrer, une mission à lancer, ou une collaboration à envisager.</h2>
+            <h2 class="mt-3 text-3xl font-bold text-white">Un besoin à cadrer, une mission à lancer ou une collaboration à envisager.</h2>
             <p class="mt-4 max-w-2xl text-sm leading-8 text-slate-300">
                 Si vous cherchez un expert, une équipe dédiée ou simplement un cadre plus clair pour faire avancer un sujet critique, nous pouvons en parler.
             </p>

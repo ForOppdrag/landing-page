@@ -24,7 +24,7 @@
             @include('partials.brand-mark')
 
             <p class="max-w-sm text-sm leading-7 text-slate-300">
-                Nous aidons les entreprises à cadrer, sécuriser et lancer leurs missions IA, data et cybersécurité avec le bon niveau d’exigence et un cadre fiable.
+                Nous accompagnons les entreprises pour structurer, sécuriser et déployer leurs projets IA, data et cybersécurité avec le juste niveau d’exigence et dans un cadre fiable et robuste.
             </p>
 
             <div class="flex flex-wrap gap-2 text-xs">
@@ -57,7 +57,7 @@
         <div id="footer-newsletter">
             <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white">Newsletter</p>
             <p class="mt-5 text-sm leading-7 text-slate-300">
-                Recevez une veille utile sur l’IA, la data et la cybersécurité, pensée pour les entreprises et orientée décision.
+                Recevez une veille experte et décisive sur l’IA, la data et la cybersécurité : des analyses pointues, des tendances émergentes et des insights stratégiques spécialement pensés pour les dirigeants d’entreprises qui veulent transformer l’information en avantage compétitif.
             </p>
 
             @if (session('newsletter_success'))

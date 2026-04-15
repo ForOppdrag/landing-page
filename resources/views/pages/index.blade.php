@@ -54,7 +54,7 @@
                 'title' => 'Pack preuve de concept',
                 'price' => 'Format 2 à 6 semaines',
                 'description' => 'Un format court pour transformer un besoin en preuve concrète, avec un livrable utile et exploitable.',
-                'badge' => 'Idéale pour arbitrer vite',
+                'badge' => 'Idéal pour arbitrer vite',
                 'items' => ['Cadrage opérationnel', 'Pilotage centralisé', 'Livrable utile à la décision'],
                 'cta' => 'Parler à un expert',
                 'highlight' => true,
@@ -79,7 +79,7 @@
 
         $proofs = [
             ['value' => '5 jours', 'label' => 'pour lancer une mission avec le bon expert.'],
-            ['value' => '48 h', 'label' => 'pour cadrer, qualifier et verrouiller le bésoin.'],
+            ['value' => '48 h', 'label' => 'pour cadrer, qualifier et verrouiller le besoin.'],
             ['value' => 'Entreprises', 'label' => 'approche pensée pour TPE/PME, grands comptes et ESN.'],
         ];
 
@@ -247,7 +247,7 @@
             ['title' => 'Lancer dans un cadre fiable', 'text' => 'La mission démarre dans un cadre contractuel, opérationnel et conforme.'],
         ];
 
-        $signals = ['Définition du bésoin', 'Sélection exigeante', 'Cadre et conformité RGPD', 'Lancement de la mission'];
+        $signals = ['Définition du besoin', 'Sélection exigeante', 'Cadre et conformité RGPD', 'Lancement de la mission'];
 
         $consoleStages = [
             [
@@ -387,7 +387,7 @@
                             <article class="interaction-card rounded-[1.9rem] p-5 md:col-span-2 xl:col-span-2" data-reveal style="--reveal-delay: 260ms;">
                                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">Responsabilité</p>
                                 <h3 class="mt-3 text-lg font-semibold text-white">Démarche RSE</h3>
-                                <p class="mt-3 text-sm leading-7 text-slate-300">Oppdrag.tech reverse 3 % de ses bénéfices à l’ONaCVG et défend une approche liant rigueur d'éxecution et responsabilité sociétale en favorisant également l’insertion de profils issus de minorités ou de parcours atypiques.</p>
+                                <p class="mt-3 text-sm leading-7 text-slate-300">Oppdrag.tech reverse 3 % de ses bénéfices à l’ONaCVG et défend une approche liant rigueur d’exécution et responsabilité sociétale en favorisant également l’insertion de profils issus de minorités ou de parcours atypiques.</p>
                             </article>
                         </div>
                     </aside>
@@ -637,7 +637,7 @@
             $consoleMeta = [
                 'brief' => [
                     'status' => 'Cadrage en cours',
-                    'signal' => 'Signal validé',
+                    'signal' => 'Besoin défini',
                     'clarity' => 'Élevée',
                     'risk' => 'Faible',
                     'compliance' => 'Confidentialité cadrée',
@@ -1205,7 +1205,7 @@
         <div class="grid gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-start">
             <div data-reveal>
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Expertises</p>
-                <h2 id="expertises-title" class="mt-4 text-3xl font-bold text-white md:text-5xl">Des compétences métiers adaptées à vos bésoins </h2>
+                <h2 id="expertises-title" class="mt-4 text-3xl font-bold text-white md:text-5xl">Des compétences métiers adaptées à vos besoins</h2>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                     Oppdrag.tech est mobilisé lorsque les enjeux sont sensibles, que l’erreur n’est pas permise et qu’un simple matching ne suffit pas à garantir la bonne exécution.
                 </p>
@@ -1325,7 +1325,7 @@
                     </li>
                     <li class="flex gap-3">
                         <span class="mt-2 h-2.5 w-2.5 rounded-full bg-amber-300" aria-hidden="true"></span>
-                        <span><strong class="text-amber-200">3% des bénéfices</strong> reversés à l’ONaCVG dans une logique d’engagement tangible.</span>
+                        <span><strong class="text-amber-200">3 % des bénéfices</strong> reversés à l’ONaCVG dans une logique d’engagement tangible.</span>
                     </li>
                 </ul>
             </div>

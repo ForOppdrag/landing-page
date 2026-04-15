@@ -9,13 +9,16 @@ concurrency:
   group: deploy-ovh-main
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -28,9 +31,10 @@ jobs:
         run: composer install --no-dev --optimize-autoloader
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
+          cache: npm
 
       - name: Install Node dependencies
         run: npm ci
@@ -38,23 +42,25 @@ jobs:
       - name: Build front assets
         run: npm run build
 
-      - name: Deploy to OVH
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.OVH_FTP_SERVER }}
-          username: ${{ secrets.OVH_FTP_USERNAME }}
-          password: ${{ secrets.OVH_FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /landing-page/
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.github/**
-            **/tests/**
-            **/.env
-            **/storage/logs/**
-            **/storage/framework/cache/**
-            **/storage/framework/sessions/**
-            **/storage/framework/views/**
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy to OVH via lftp
+        run: |
+          lftp -e "
+            set ssl:verify-certificate no;
+            open -u ${{ secrets.OVH_FTP_USERNAME }},${{ secrets.OVH_FTP_PASSWORD }} ${{ secrets.OVH_FTP_SERVER }};
+            mirror -R \
+              --verbose \
+              --exclude-glob .git* \
+              --exclude-glob node_modules \
+              --exclude-glob .github \
+              --exclude-glob tests \
+              --exclude-glob .env \
+              --exclude-glob storage/logs \
+              --exclude-glob storage/framework/cache \
+              --exclude-glob storage/framework/sessions \
+              --exclude-glob storage/framework/views \
+              ./ /landing-page/;
+            bye
+          "
