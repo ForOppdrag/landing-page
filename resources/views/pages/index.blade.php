@@ -205,19 +205,19 @@
             [
                 'label' => 'IA générative',
                 'title' => 'Développeur IA',
-                'text' => 'Concevoir et industrialiser des solutions IA end-to-end, du pipeline de données à la mise en production en posant les standards MLOps, LLMOps et d'ingénierie logicielle qui garantissent fiabilité, scalabilité et conformité RGPD.',
+                'text' => "Concevoir et industrialiser des solutions IA end-to-end, du pipeline de données à la mise en production en posant les standards MLOps, LLMOps et d'ingénierie logicielle qui garantissent fiabilité, scalabilité et conformité RGPD.",
                 'outcome' => 'Décision plus rapide, dette d’architecture évitée',
             ],
             [
                 'label' => 'Data science',
                 'title' => 'Data Engineer',
-                'text' => 'Explorer et analyser des signaux data pour qualifier la faisabilité de nouveaux concepts IA, prototyper les cas d'usage les plus prometteurs, et garantir la transmissibilité des livrables vers les équipes d'industrialisation.',
+                'text' => "Explorer et analyser des signaux data pour qualifier la faisabilité de nouveaux concepts IA, prototyper les cas d'usage les plus prometteurs, et garantir la transmissibilité des livrables vers les équipes d'industrialisation.",
                 'outcome' => 'Capacité d’exécution renforcée sans ralentir les équipes',
             ],
             [
                 'label' => 'Cybersécurité',
                 'title' => 'Pentester',
-                'text' => 'Piloter la posture de sécurité opérationnelle via l'analyse de risque, IAM/PAM, tests d'intrusion et sécurisation des migrations cloud AWS/OVH dans un cadre réglementaire exigeant (LPM, DORA et NIST).',
+                'text' => "Piloter la posture de sécurité opérationnelle via l'analyse de risque, IAM/PAM, tests d'intrusion et sécurisation des migrations cloud AWS/OVH dans un cadre réglementaire exigeant (LPM, DORA et NIST).",
                 'outcome' => 'Risque réduit, pilotage plus net, mise en mouvement plus rapide',
             ],
         ];
