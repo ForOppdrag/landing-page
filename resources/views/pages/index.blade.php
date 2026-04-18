@@ -2,7 +2,7 @@
 
 @section('title', 'La référence technique de l’ingénierie des données | oppdrag.tech')
 @section('meta_description', 'Déploiement rapide. Sélection exigeante. Suivi rigoureux.')
-@section('canonical', route('home'))
+@section('canonical', 'https://oppdrag.tech/')
 
 @section('structured_data')
     <script type="application/ld+json">
@@ -12,7 +12,7 @@
                 {
                     "@type": "Organization",
                     "name": "oppdrag.tech",
-                    "url": "{{ route('home') }}",
+                    "url": "https://oppdrag.tech/",
                     "logo": "{{ asset('Images/logo-opg2.png') }}",
                     "email": "contact@oppdrag.tech",
                     "telephone": "+33 9 51 21 87 47",
@@ -31,7 +31,7 @@
                 {
                     "@type": "WebSite",
                     "name": "oppdrag.tech",
-                    "url": "{{ route('home') }}"
+                    "url": "https://oppdrag.tech/"
                 }
             ]
         }
