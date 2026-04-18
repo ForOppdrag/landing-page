@@ -25,9 +25,7 @@
     <meta name="twitter:image" content="@yield('og_image', asset('Images/logo-opg2.png'))">
     <meta name="twitter:image:alt" content="@yield('og_image_alt', 'Logo oppdrag.tech')">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('Images/logo.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('Images/logo.png') }}">
-    <link rel="shortcut icon" href="{{ asset('Images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('Images/logo.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('Images/logo.png') }}">
 
     <script>
