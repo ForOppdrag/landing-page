@@ -157,7 +157,7 @@
         }
 
         section[id] {
-            scroll-margin-top: 6rem;
+            scroll-margin-top: calc(var(--site-header-offset, 6rem) + 1rem);
         }
 
         .hero-grid {
@@ -955,6 +955,15 @@
                     linear-gradient(180deg, rgba(2, 6, 23, 0.5), rgba(2, 6, 23, 0.84)),
                     linear-gradient(180deg, rgba(2, 6, 23, 0.24), rgba(2, 6, 23, 0.8));
             }
+
+            .console-meta-label {
+                white-space: normal;
+                overflow-wrap: anywhere;
+                word-break: break-word;
+                hyphens: auto;
+                line-height: 1.45;
+                letter-spacing: 0.14em;
+            }
         }
     </style>
 
@@ -989,6 +998,18 @@
     </div>
 
     <script>
+        const siteHeader = document.querySelector('[data-site-header]');
+        const syncHeaderOffset = () => {
+            if (!siteHeader) {
+                return;
+            }
+
+            document.documentElement.style.setProperty('--site-header-offset', `${siteHeader.offsetHeight}px`);
+        };
+
+        syncHeaderOffset();
+        window.addEventListener('resize', syncHeaderOffset);
+
         document.querySelectorAll('[data-menu-toggle]').forEach((button) => {
             const targetId = button.getAttribute('aria-controls');
             const target = targetId ? document.getElementById(targetId) : null;
@@ -1022,6 +1043,32 @@
                 if (window.innerWidth >= 1024) {
                     closeMenu();
                 }
+            });
+
+            target.querySelectorAll('[data-mobile-contact-link]').forEach((link) => {
+                link.addEventListener('click', (event) => {
+                    const url = new URL(link.href, window.location.href);
+                    const isSamePageContactLink = url.pathname === window.location.pathname && url.hash === '#contact';
+                    const contactSection = isSamePageContactLink ? document.getElementById('contact') : null;
+
+                    if (!contactSection) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    closeMenu();
+                    syncHeaderOffset();
+
+                    window.requestAnimationFrame(() => {
+                        const headerOffset = siteHeader?.offsetHeight ?? 0;
+                        const targetTop = contactSection.getBoundingClientRect().top + window.scrollY - headerOffset - 16;
+
+                        window.scrollTo({
+                            top: Math.max(targetTop, 0),
+                            behavior: 'smooth',
+                        });
+                    });
+                });
             });
         });
 

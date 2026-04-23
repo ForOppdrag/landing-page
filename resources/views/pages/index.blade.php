@@ -2,7 +2,7 @@
 
 @section('title', 'La référence technique de l’ingénierie des données | oppdrag.tech')
 @section('meta_description', 'Déploiement rapide. Sélection exigeante. Suivi rigoureux.')
-@section('canonical', 'https://oppdrag.tech/')
+@section('canonical', route('home'))
 
 @section('structured_data')
     <script type="application/ld+json">
@@ -12,7 +12,7 @@
                 {
                     "@type": "Organization",
                     "name": "oppdrag.tech",
-                    "url": "https://oppdrag.tech/",
+                    "url": "{{ route('home') }}",
                     "logo": "{{ asset('Images/logo-opg2.png') }}",
                     "email": "contact@oppdrag.tech",
                     "telephone": "+33 9 51 21 87 47",
@@ -31,7 +31,7 @@
                 {
                     "@type": "WebSite",
                     "name": "oppdrag.tech",
-                    "url": "https://oppdrag.tech/"
+                    "url": "{{ route('home') }}"
                 }
             ]
         }
@@ -78,7 +78,6 @@
         ];
 
         $proofs = [
-            ['value' => '5 jours', 'label' => 'pour lancer une mission avec le bon expert.'],
             ['value' => '48 h', 'label' => 'pour cadrer, qualifier et verrouiller le besoin.'],
             ['value' => 'Entreprises', 'label' => 'approche pensée pour TPE/PME, grands comptes et ESN.'],
         ];
@@ -298,628 +297,6 @@
         ];
     @endphp
 
-    <style>
-        .home-premium {
-            --home-line-soft: rgba(148, 163, 184, 0.1);
-            --home-line-strong: rgba(148, 163, 184, 0.14);
-        }
-
-        .home-premium .hero-shell {
-            border-color: rgba(148, 163, 184, 0.12);
-            background:
-                linear-gradient(155deg, rgba(8, 17, 31, 0.95), rgba(10, 17, 31, 0.82)),
-                radial-gradient(circle at top left, rgba(94, 234, 212, 0.1), transparent 24%);
-            box-shadow:
-                0 30px 84px rgba(2, 8, 23, 0.38),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-
-        .home-premium .hero-grid {
-            opacity: 0.34 !important;
-        }
-
-        .home-premium .noise-mask {
-            opacity: 0.08;
-        }
-
-        .home-premium .ambient-orb {
-            opacity: 0.42;
-            filter: blur(22px);
-        }
-
-        .home-premium .bento-card,
-        .home-premium .interaction-card,
-        .home-premium .card-panel,
-        .home-premium .glass-panel,
-        .home-premium .governance-card,
-        .home-premium .qualification-shell,
-        .home-premium .governance-shell {
-            border-color: var(--home-line-soft);
-            box-shadow: 0 10px 28px rgba(2, 8, 23, 0.12);
-        }
-
-        .home-premium .bento-card,
-        .home-premium .interaction-card,
-        .home-premium .card-panel,
-        .home-premium .glass-panel,
-        .home-premium .governance-card,
-        .home-premium .qualification-shell,
-        .home-premium .governance-shell {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.78), rgba(8, 17, 31, 0.7));
-        }
-
-        .home-premium section[aria-labelledby="profiles-title"],
-        .home-premium section[aria-labelledby="governance-title"],
-        .home-premium section[aria-labelledby="outcomes-title"],
-        .home-premium section[aria-labelledby="faq-contact-title"] {
-            background: transparent !important;
-        }
-
-        .home-premium section[aria-labelledby="manifesto-title"] {
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.012)),
-                radial-gradient(circle at top, rgba(94, 234, 212, 0.05), transparent 34%) !important;
-        }
-
-        .home-premium section[aria-labelledby="coverage-title"],
-        .home-premium section[aria-labelledby="impact-title"] {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.008)) !important;
-        }
-
-        .home-premium .case-study-hero,
-        .home-premium .mission-console,
-        .home-premium .manifesto-shell {
-            background:
-                linear-gradient(180deg, rgba(8, 17, 31, 0.9), rgba(15, 23, 42, 0.8)),
-                radial-gradient(circle at top left, rgba(94, 234, 212, 0.07), transparent 28%);
-            border-color: var(--home-line-strong);
-            box-shadow: 0 20px 46px rgba(2, 8, 23, 0.22);
-        }
-
-        .home-premium .bento-card:hover,
-        .home-premium .bento-card:focus-within,
-        .home-premium .profile-card:hover,
-        .home-premium .profile-card:focus-within,
-        .home-premium .use-case-card:hover,
-        .home-premium .use-case-card:focus-within {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 34px rgba(2, 8, 23, 0.16);
-        }
-
-        .home-premium .profile-card {
-            border-color: var(--home-line-soft);
-            box-shadow: 0 16px 38px rgba(2, 8, 23, 0.16);
-        }
-
-        .home-premium .profile-card-image {
-            filter: blur(10px) saturate(0.86) brightness(0.82);
-        }
-
-        .home-premium .tech-pill-card,
-        .home-premium .case-study-pill,
-        .home-premium .console-chip,
-        .home-premium .use-case-tag {
-            border-color: rgba(148, 163, 184, 0.14);
-        }
-
-        .home-premium .tech-pill-card,
-        .home-premium .case-study-pill,
-        .home-premium .console-chip {
-            background: rgba(8, 17, 31, 0.58);
-        }
-
-        .home-premium .tech-pill-card {
-            gap: 0.9rem;
-            padding: 0.7rem 1.05rem 0.7rem 0.8rem;
-        }
-
-        .home-premium .tech-pill-logo {
-            width: 2.75rem;
-            height: 2.75rem;
-            padding: 0.45rem;
-            border-radius: 1rem;
-            background: rgb(255 255 255 / 0.98);
-        }
-
-        .home-premium .tech-pill-logo-image {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
-
-        .home-premium .btn-primary,
-        .home-premium .btn-secondary,
-        .home-premium .btn-light {
-            box-shadow: none;
-        }
-
-        .home-premium .btn-primary:hover,
-        .home-premium .btn-primary:focus-visible,
-        .home-premium .btn-light:hover,
-        .home-premium .btn-light:focus-visible {
-            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.2);
-        }
-
-        .home-premium .field-input {
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .home-premium .field-input:focus {
-            background: rgba(15, 23, 42, 0.84);
-        }
-
-        .home-premium .manifesto-raceway {
-            position: relative;
-            margin-top: 2rem;
-            overflow: hidden;
-            border-top: 1px solid rgba(148, 163, 184, 0.12);
-            padding-top: 1rem;
-        }
-
-        .home-premium .manifesto-qualification-stage {
-            position: relative;
-            margin-top: 2rem;
-            min-height: 7rem;
-            overflow: hidden;
-            border-top: 1px solid rgba(148, 163, 184, 0.12);
-            padding-top: 0.75rem;
-        }
-
-        .home-premium .manifesto-raceway::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 1.8rem;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(94, 234, 212, 0.28), rgba(255, 255, 255, 0.08));
-        }
-
-        .home-premium .manifesto-raceway::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 2.15rem;
-            height: 0.35rem;
-            background-image: radial-gradient(circle, rgba(148, 163, 184, 0.42) 0.08rem, transparent 0.09rem);
-            background-size: 1.1rem 0.35rem;
-            opacity: 0.5;
-        }
-
-        .home-premium .manifesto-racecar {
-            position: relative;
-            width: 8rem;
-            max-width: 24vw;
-            color: #d9f8f2;
-            filter: drop-shadow(0 10px 18px rgba(8, 145, 178, 0.2));
-            transform: translateX(-18%);
-            animation: manifesto-racecar-run 3.6s cubic-bezier(0.55, 0.02, 0.78, 0.2) infinite;
-            will-change: transform;
-        }
-
-        .home-premium .manifesto-racecar svg {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .home-premium .profiles-scout {
-            position: relative;
-            margin-top: 2rem;
-            overflow: hidden;
-            border: 1px solid rgba(148, 163, 184, 0.12);
-            border-radius: 1.5rem;
-            background:
-                linear-gradient(180deg, rgba(8, 17, 31, 0.72), rgba(15, 23, 42, 0.6)),
-                radial-gradient(circle at top left, rgba(94, 234, 212, 0.08), transparent 32%);
-            padding: 1rem 1rem 1.15rem;
-        }
-
-        .home-premium .profiles-scout::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03), transparent 22%),
-                radial-gradient(circle at 82% 24%, rgba(103, 232, 249, 0.08), transparent 22%);
-            pointer-events: none;
-        }
-
-        .home-premium .profiles-scout-stage {
-            position: relative;
-            z-index: 1;
-            min-height: 12rem;
-        }
-
-        .home-premium .profiles-scout-radar {
-            position: relative;
-            overflow: hidden;
-            width: 9rem;
-            height: 9rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(148, 163, 184, 0.14);
-            background:
-                radial-gradient(circle, rgba(15, 23, 42, 0.9), rgba(8, 17, 31, 0.75)),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
-        }
-
-        .home-premium .profiles-scout-radar::before,
-        .home-premium .profiles-scout-radar::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-        }
-
-        .home-premium .profiles-scout-radar::before {
-            background:
-                radial-gradient(circle, transparent 0 28%, rgba(148, 163, 184, 0.18) 28% 29%, transparent 29% 48%, rgba(148, 163, 184, 0.14) 48% 49%, transparent 49% 68%, rgba(148, 163, 184, 0.12) 68% 69%, transparent 69%),
-                linear-gradient(90deg, transparent calc(50% - 0.5px), rgba(148, 163, 184, 0.14) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
-                linear-gradient(180deg, transparent calc(50% - 0.5px), rgba(148, 163, 184, 0.14) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px));
-        }
-
-        .home-premium .profiles-scout-radar::after {
-            background: conic-gradient(from 0deg, rgba(94, 234, 212, 0.34), rgba(94, 234, 212, 0) 18%);
-            animation: profiles-scout-sweep 3.6s linear infinite;
-            transform-origin: center;
-        }
-
-        .home-premium .profiles-scout-ping {
-            position: absolute;
-            width: 0.55rem;
-            height: 0.55rem;
-            border-radius: 9999px;
-            background: #67e8f9;
-            box-shadow: 0 0 0 0 rgba(103, 232, 249, 0.35);
-            animation: profiles-scout-ping 2.2s ease-out infinite;
-        }
-
-        .home-premium .profiles-scout-ping:nth-child(1) {
-            top: 26%;
-            left: 58%;
-        }
-
-        .home-premium .profiles-scout-ping:nth-child(2) {
-            top: 62%;
-            left: 34%;
-            animation-delay: 0.8s;
-        }
-
-        .home-premium .profiles-scout-ping:nth-child(3) {
-            top: 42%;
-            left: 24%;
-            animation-delay: 1.4s;
-        }
-
-        .home-premium .profiles-scout-connector {
-            position: absolute;
-            left: 8.75rem;
-            top: 5.2rem;
-            right: 1rem;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(94, 234, 212, 0.5), rgba(94, 234, 212, 0.12));
-        }
-
-        .home-premium .profiles-scout-connector::before,
-        .home-premium .profiles-scout-connector::after {
-            content: '';
-            position: absolute;
-            width: 0.45rem;
-            height: 0.45rem;
-            border-radius: 9999px;
-            background: #5eead4;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .home-premium .profiles-scout-connector::before {
-            left: 0;
-        }
-
-        .home-premium .profiles-scout-connector::after {
-            right: 0;
-        }
-
-        @keyframes manifesto-racecar-run {
-            0% {
-                transform: translateX(-18%) translateY(0);
-            }
-
-            46% {
-                transform: translateX(92%) translateY(-1px);
-            }
-
-            50% {
-                transform: translateX(92%) scaleX(-1) translateY(-1px);
-            }
-
-            99% {
-                transform: translateX(-18%) scaleX(-1) translateY(0);
-            }
-
-            100% {
-                transform: translateX(-18%) translateY(0);
-            }
-        }
-
-        @keyframes profiles-scout-sweep {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes profiles-scout-ping {
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(103, 232, 249, 0.35);
-            }
-
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 0.9rem rgba(103, 232, 249, 0);
-            }
-        }
-
-        .home-premium .qualification-shell {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .home-premium .qualification-crash-lane {
-            pointer-events: none;
-            position: absolute;
-            inset: 0;
-            z-index: 4;
-            overflow: hidden;
-        }
-
-        .home-premium .qualification-crash-lane::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            background:
-                radial-gradient(circle at 88% 24%, rgba(251, 191, 36, 0.22), transparent 12%),
-                radial-gradient(circle at 90% 28%, rgba(251, 146, 60, 0.18), transparent 18%);
-            animation: qualification-impact-flash 2.8s linear infinite;
-        }
-
-        .home-premium .qualification-crash-car {
-            position: absolute;
-            top: 1.4rem;
-            left: -8.5rem;
-            width: 8.5rem;
-            color: #d9f8f2;
-            filter: drop-shadow(0 14px 20px rgba(8, 145, 178, 0.24));
-            animation: qualification-crash-run 2.8s cubic-bezier(0.8, 0, 0.22, 1) infinite;
-            transform-origin: center;
-            will-change: transform, opacity;
-        }
-
-        .home-premium .qualification-crash-car svg {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .home-premium .qualification-crash-sparks {
-            position: absolute;
-            top: 0.6rem;
-            right: -0.6rem;
-            width: 11rem;
-            height: 11rem;
-            opacity: 0;
-            animation: qualification-crash-sparks 2.8s linear infinite;
-        }
-
-        .home-premium .qualification-crash-sparks::before,
-        .home-premium .qualification-crash-sparks::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 50% 50%, rgba(255, 245, 157, 0.95) 0 0.6rem, rgba(251, 191, 36, 0.78) 0.61rem 1.2rem, transparent 1.22rem),
-                radial-gradient(circle at 18% 36%, rgba(250, 204, 21, 0.92) 0 0.22rem, transparent 0.24rem),
-                radial-gradient(circle at 74% 22%, rgba(251, 146, 60, 0.92) 0 0.24rem, transparent 0.26rem),
-                radial-gradient(circle at 80% 68%, rgba(253, 224, 71, 0.9) 0 0.18rem, transparent 0.2rem),
-                radial-gradient(circle at 28% 78%, rgba(251, 113, 133, 0.7) 0 0.16rem, transparent 0.18rem);
-        }
-
-        .home-premium .qualification-crash-sparks::after {
-            background:
-                conic-gradient(from 0deg, rgba(251, 191, 36, 0) 0deg 12deg, rgba(251, 191, 36, 0.9) 12deg 20deg, rgba(251, 191, 36, 0) 20deg 50deg, rgba(251, 146, 60, 0.92) 50deg 60deg, rgba(251, 146, 60, 0) 60deg 95deg, rgba(253, 224, 71, 0.9) 95deg 104deg, rgba(253, 224, 71, 0) 104deg 150deg, rgba(251, 113, 133, 0.8) 150deg 158deg, rgba(251, 113, 133, 0) 158deg 220deg, rgba(250, 204, 21, 0.9) 220deg 230deg, rgba(250, 204, 21, 0) 230deg 300deg, rgba(255, 245, 157, 0.85) 300deg 310deg, rgba(255, 245, 157, 0) 310deg 360deg);
-            mask: radial-gradient(circle, transparent 0 1rem, black 1.05rem);
-            transform: rotate(16deg) scale(1.05);
-            opacity: 0.88;
-        }
-
-        .home-premium .qualification-crash-smoke {
-            position: absolute;
-            top: 0.25rem;
-            right: -0.8rem;
-            width: 12rem;
-            height: 7rem;
-            opacity: 0;
-            filter: blur(2px);
-            animation: qualification-crash-smoke 2.8s linear infinite;
-        }
-
-        .home-premium .qualification-crash-smoke::before,
-        .home-premium .qualification-crash-smoke::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 72% 48%, rgba(226, 232, 240, 0.22), transparent 22%),
-                radial-gradient(circle at 58% 42%, rgba(148, 163, 184, 0.24), transparent 26%),
-                radial-gradient(circle at 82% 54%, rgba(148, 163, 184, 0.18), transparent 20%);
-        }
-
-        .home-premium .qualification-crash-smoke::after {
-            transform: scale(1.08) translateX(-0.4rem);
-            opacity: 0.7;
-        }
-
-        @keyframes qualification-crash-run {
-            0% {
-                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-                opacity: 0;
-            }
-
-            8% {
-                opacity: 1;
-            }
-
-            62% {
-                transform: translateX(23rem) translateY(0) rotate(0deg) scale(1);
-                opacity: 1;
-            }
-
-            76% {
-                transform: translateX(31rem) translateY(0.1rem) rotate(6deg) scale(0.98);
-                opacity: 1;
-            }
-
-            84% {
-                transform: translateX(35rem) translateY(0.5rem) rotate(24deg) scale(0.96);
-                opacity: 1;
-            }
-
-            90% {
-                transform: translateX(37.4rem) translateY(0.9rem) rotate(112deg) scale(0.84);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(37.4rem) translateY(0.9rem) rotate(112deg) scale(0.84);
-                opacity: 0;
-            }
-        }
-
-        @keyframes qualification-crash-sparks {
-            0%,
-            74%,
-            100% {
-                opacity: 0;
-                transform: scale(0.2);
-            }
-
-            82% {
-                opacity: 1;
-                transform: scale(0.7);
-            }
-
-            90% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1.9);
-            }
-        }
-
-        @keyframes qualification-crash-smoke {
-            0%,
-            80%,
-            100% {
-                opacity: 0;
-                transform: translateX(0) scale(0.86);
-            }
-
-            88% {
-                opacity: 0.8;
-                transform: translateX(-0.2rem) scale(0.96);
-            }
-
-            100% {
-                opacity: 0.34;
-                transform: translateX(-1.1rem) scale(1.2);
-            }
-        }
-
-        @keyframes qualification-impact-flash {
-            0%,
-            82%,
-            100% {
-                opacity: 0;
-            }
-
-            88% {
-                opacity: 1;
-            }
-
-            94% {
-                opacity: 0.65;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .home-premium .case-study-hero,
-            .home-premium .mission-console,
-            .home-premium .manifesto-shell,
-            .home-premium .hero-shell {
-                box-shadow: 0 18px 40px rgba(2, 8, 23, 0.22);
-            }
-
-            .home-premium .profiles-scout-stage {
-                min-height: 15rem;
-            }
-
-            .home-premium .profiles-scout-radar {
-                width: 7.25rem;
-                height: 7.25rem;
-            }
-
-            .home-premium .profiles-scout-connector {
-                left: 7rem;
-                top: 4.2rem;
-                right: 0.75rem;
-            }
-
-            .home-premium .qualification-crash-car {
-                top: 1.1rem;
-                width: 6.25rem;
-            }
-
-            .home-premium .qualification-crash-sparks {
-                top: 0.8rem;
-                right: -1rem;
-                width: 7rem;
-                height: 7rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .home-premium .manifesto-racecar {
-                animation: none;
-                transform: translateX(0);
-            }
-
-            .home-premium .profiles-scout-radar::after,
-            .home-premium .profiles-scout-ping {
-                animation: none;
-            }
-
-            .home-premium .qualification-crash-car,
-            .home-premium .qualification-crash-sparks,
-            .home-premium .qualification-crash-smoke {
-                animation: none;
-                opacity: 0;
-            }
-        }
-    </style>
-
-    <div class="home-premium">
     <section class="premium-section relative overflow-hidden pt-8" aria-labelledby="hero-title">
         <div class="absolute inset-0 -z-20">
             <div class="bg-video-shell -z-10" aria-hidden="true">
@@ -1109,28 +486,6 @@
                     <h2 id="manifesto-title" class="mt-5 max-w-4xl text-balance text-4xl font-black leading-[0.96] text-white md:text-6xl xl:text-7xl">
                         {{ $manifesto['title'] }}
                     </h2>
-                    <div class="manifesto-qualification-stage" aria-hidden="true">
-                        <div class="qualification-crash-lane">
-                            <div class="qualification-crash-car">
-                                <svg viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-                                    <path d="M77 74H131L168 45H253L287 74H335L352 85H385V98H347L332 109H290L280 98H142L132 109H82L73 98H34V85H62L77 74Z" fill="currentColor"/>
-                                    <path d="M171 45L204 21H262L250 45H171Z" fill="#67E8F9"/>
-                                    <path d="M153 54H277L296 73H134L153 54Z" fill="#5EEAD4"/>
-                                    <path d="M57 74H96L80 90H34L57 74Z" fill="#99F6E4"/>
-                                    <path d="M319 74H362L386 90H336L319 74Z" fill="#99F6E4"/>
-                                    <rect x="198" y="32" width="40" height="11" rx="5.5" fill="#082F49"/>
-                                    <circle cx="108" cy="97" r="18" fill="#020617"/>
-                                    <circle cx="108" cy="97" r="9" fill="#94A3B8"/>
-                                    <circle cx="306" cy="97" r="18" fill="#020617"/>
-                                    <circle cx="306" cy="97" r="9" fill="#94A3B8"/>
-                                    <path d="M13 83H48V92H0L13 83Z" fill="#E2E8F0" fill-opacity=".7"/>
-                                    <path d="M372 83H407L420 92H372V83Z" fill="#E2E8F0" fill-opacity=".7"/>
-                                </svg>
-                            </div>
-                            <div class="qualification-crash-sparks"></div>
-                            <div class="qualification-crash-smoke"></div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="space-y-8" data-reveal style="--reveal-delay: 80ms;">
@@ -1218,48 +573,36 @@
     </section>
 
     <section id="offres" class="section-fade mx-auto max-w-7xl px-6 py-20 lg:px-8" aria-labelledby="offers-title">
-        <div class="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
-            <div class="max-w-2xl" data-reveal>
+        <div class="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
+            <div data-reveal>
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-100">Offres</p>
                 <h2 id="offers-title" class="mt-4 max-w-2xl text-balance text-3xl font-bold text-white md:text-5xl">Des formats d’intervention pensés pour des sujets qui demandent plus qu’un simple staffing.</h2>
             </div>
-            <div class="card-panel rounded-[2rem] p-5 md:p-6" data-reveal style="--reveal-delay: 70ms;">
-                <figure class="overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-2">
-                    <img
-                        src="{{ asset('Images/pexels-kindelmedia-7651734.jpg') }}"
-                        alt="Équipe analysant des graphiques et des documents autour de plusieurs ordinateurs portables"
-                        class="h-28 w-full rounded-[1rem] object-cover object-center md:h-32 lg:h-36"
-                        loading="lazy"
-                        decoding="async"
-                        width="1000"
-                        height="750"
-                    >
-                </figure>
-                <div class="h-px w-16 bg-gradient-to-r from-teal-300/70 to-transparent" aria-hidden="true"></div>
-                <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+            <div data-reveal style="--reveal-delay: 70ms;">
+                <p class="max-w-3xl text-lg leading-8 text-slate-300">
                     Chaque format combine vitesse de mobilisation, niveau de seniorité, cadre opérationnel et responsabilité claire. L’objectif n’est pas de vendre une présence, mais de rendre la mission tenable et utile.
                 </p>
             </div>
         </div>
 
-        <div class="mt-12 grid gap-6 xl:grid-cols-3">
+        <div class="mt-14 grid gap-6 xl:grid-cols-3">
             @foreach ($offers as $offer)
-                <article class="{{ $offer['highlight'] ? 'border-teal-300/30 bg-gradient-to-b from-teal-300/10 to-white/5 ring-1 ring-teal-300/15' : 'card-panel' }} bento-card flex h-full flex-col rounded-[2rem] border p-8 shadow-lg shadow-slate-950/15" data-reveal style="--reveal-delay: {{ $loop->index * 70 }}ms;">
-                    <div class="flex-1">
+                <article class="{{ $offer['highlight'] ? 'border-teal-300/30 bg-gradient-to-b from-teal-300/10 to-white/5' : 'card-panel' }} bento-card rounded-[2rem] border p-8 shadow-lg shadow-slate-950/15" data-reveal style="--reveal-delay: {{ $loop->index * 70 }}ms;">
+                    <div>
                         <h3 class="text-2xl font-bold text-white">{{ $offer['title'] }}</h3>
                         <p class="mt-3 text-sm font-medium uppercase tracking-[0.18em] text-teal-100">{{ $offer['price'] }}</p>
-
-                        <p class="mt-6 text-sm leading-7 text-slate-300">{{ $offer['description'] }}</p>
-
-                        <ul class="mt-6 space-y-3 text-sm text-slate-200">
-                            @foreach ($offer['items'] as $item)
-                                <li class="flex items-start gap-3">
-                                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-teal-300" aria-hidden="true"></span>
-                                    <span>{{ $item }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
                     </div>
+
+                    <p class="mt-6 text-sm leading-7 text-slate-300">{{ $offer['description'] }}</p>
+
+                    <ul class="mt-6 space-y-3 text-sm text-slate-200">
+                        @foreach ($offer['items'] as $item)
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1 h-2.5 w-2.5 rounded-full bg-teal-300" aria-hidden="true"></span>
+                                <span>{{ $item }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
 
                     <a href="#contact" class="{{ $offer['highlight'] ? 'btn-primary' : 'btn-light' }} mt-8 w-full">
                         {{ $offer['cta'] }}
@@ -1558,6 +901,10 @@
                         <span class="inline-flex h-2.5 w-2.5 rounded-full bg-teal-300 shadow-[0_0_0_6px_rgba(94,234,212,0.12)]" aria-hidden="true"></span>
                         <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-300">Cockpit d’exécution</p>
                     </div>
+                    <div class="console-status-pill inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-100">
+                        <span class="h-2 w-2 rounded-full bg-teal-300" aria-hidden="true"></span>
+                        Progression pilotée
+                    </div>
                 </div>
 
                 <div class="console-tabs-shell">
@@ -1624,7 +971,7 @@
                                             <p class="mt-2 text-sm font-medium text-slate-100">{{ $meta['risk'] }}</p>
                                         </div>
                                         <div class="console-meta-item rounded-[1rem] px-4 py-3 md:col-span-2">
-                                            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Confidentialité / cadre</p>
+                                            <p class="console-meta-label text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Confidentialité / cadre</p>
                                             <p class="mt-2 text-sm font-medium text-slate-100">{{ $meta['compliance'] }}</p>
                                         </div>
                                     </div>
@@ -1891,7 +1238,7 @@
                                             alt=""
                                             loading="lazy"
                                             decoding="async"
-                                            class="tech-pill-logo-image"
+                                            class="h-6 w-auto object-contain"
                                             width="32"
                                             height="24"
                                         >
@@ -2084,5 +1431,4 @@
             </section>
         </div>
     </section>
-    </div>
 @endsection

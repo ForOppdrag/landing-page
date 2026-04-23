@@ -12,7 +12,7 @@
     ];
 @endphp
 
-<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-md">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-md" data-site-header>
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Navigation principale">
         @include('partials.brand-mark', ['loading' => 'eager', 'fetchpriority' => 'high'])
 
@@ -68,8 +68,11 @@
                 </a>
             @endforeach
 
-            <a href="{{ $homeSection('contact') }}" class="btn-primary mt-2 px-5 py-3">
+            <a href="{{ $homeSection('contact') }}" class="btn-primary mt-2 px-5 py-3" data-mobile-contact-link>
                 Parler à un expert
+            </a>
+            <a href="{{ $homeSection('contact') }}" class="btn-secondary px-5 py-3" data-mobile-contact-link>
+                Demander un cadrage
             </a>
         </div>
     </div>
