@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Redirige www vers le domaine principal
+    RewriteCond %{HTTP_HOST} ^www\.oppdrag\.tech$ [NC]
+    RewriteRule ^(.*)$ https://oppdrag.tech/$1 [R=301,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
